@@ -1,5 +1,8 @@
 <resources>
     <string name="app_name">The Weather App</string>
+    <string name="home_activity_title">Cities</string>
+    <string name="home_activity_subtitle">Select a city to view weather details</string>
+    <string name="title_activity_weather_details">WeatherDetails</string>
     <string name="large_text">
         "Material is the metaphor.\n\n"
 
