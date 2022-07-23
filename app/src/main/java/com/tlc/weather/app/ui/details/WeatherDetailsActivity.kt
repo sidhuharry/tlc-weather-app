@@ -100,4 +100,8 @@ class WeatherDetailsActivity : BaseActivity() {
             binding.date.text = parseFormat.format(it)
         }
     }
+
+    companion object {
+        private const val TAG = "WeatherDetailsActivity"
+    }
 }

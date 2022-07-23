@@ -49,7 +49,7 @@ class WeatherDetailsViewModel(private val weatherRepo: WeatherRepo) : ViewModel(
         _isLoading.value = true
         viewModelScope.launch {
             weatherRepo.getDetailedWeather(cityId).catch { exception ->
-                Log.e(TAG, "Get detailed weather failed", exception)
+                Log.e(Companion.TAG, "Get detailed weather failed", exception)
                 _isError.postValue(true)
                 _isLoading.postValue(false)
             }.flatMapConcat { networkResp ->
@@ -86,7 +86,6 @@ class WeatherDetailsViewModel(private val weatherRepo: WeatherRepo) : ViewModel(
     }
 
     companion object {
-        private const val TAG = "HomeActivityViewModel"
+        private const val TAG = "WeatherDetailsViewModel"
     }
-
 }

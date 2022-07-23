@@ -28,6 +28,6 @@ class NetworkUtils {
     }
 
     companion object {
-        private const val TAG = "WeatherAppUtils"
+        private const val TAG = "NetworkUtils"
     }
 }
