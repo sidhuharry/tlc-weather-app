@@ -23,4 +23,9 @@ class WeatherRepo(private val weatherApiService: WeatherApiService) : IWeatherRe
         return weatherApiService.getDetailedWeather(cityId)
     }
 
+    override suspend fun getWeatherIcon(iconId: String): Flow<NetworkResponse> {
+        return weatherApiService.getIcon(iconId)
+    }
+
+
 }

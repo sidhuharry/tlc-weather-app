@@ -1,5 +1,6 @@
 package com.tlc.weather.app.network.util
 
+import android.graphics.Bitmap
 import android.util.Log
 import com.tlc.weather.app.model.NetworkResponse
 import retrofit2.Response
@@ -21,7 +22,7 @@ class NetworkUtils {
                 }
             }
         } else {
-            Log.e(TAG, "Unable to fetch cities from server.", result.exceptionOrNull())
+            Log.e(TAG, "Unable to parse response.", result.exceptionOrNull())
         }
         return networkResp
     }

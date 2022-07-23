@@ -7,8 +7,253 @@
     android:fitsSystemWindows="true"
     tools:context=".ui.details.WeatherDetailsActivity">
 
-    <include layout="@layout/toolbar" android:id="@+id/appbar"/>
+    <include
+        layout="@layout/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
 
+    <com.google.android.material.progressindicator.CircularProgressIndicator
+        android:id="@+id/progress"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:background="@color/white"
+        android:fitsSystemWindows="true"
+        android:foregroundGravity="center"
+        android:indeterminate="true"
+        android:visibility="gone"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior"
+        app:trackCornerRadius="@dimen/dp2" />
 
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:paddingTop="0dp"
+        android:scrollbars="vertical"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+        <GridLayout
+            android:id="@+id/weather_details_grid"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:columnCount="2"
+            android:paddingLeft="@dimen/dp20"
+            android:paddingTop="0dp"
+            android:paddingRight="@dimen/dp20"
+            android:paddingBottom="@dimen/dp20"
+            android:rowCount="8"
+            app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+            <ImageView
+                android:id="@+id/weatherIcon"
+                android:layout_width="@dimen/dp150"
+                android:layout_height="@dimen/dp150"
+                android:layout_gravity="center"
+                android:adjustViewBounds="true"
+                android:foregroundGravity="center"
+                android:paddingLeft="@dimen/dp20"
+                android:paddingTop="0dp"
+                android:paddingRight="@dimen/dp20"
+                android:paddingBottom="0dp"
+                android:scaleType="fitCenter" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/temp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:gravity="center_vertical"
+                android:paddingLeft="@dimen/dp20"
+                android:paddingTop="0dp"
+                android:paddingRight="@dimen/dp20"
+                android:paddingBottom="0dp"
+                android:textAllCaps="false"
+                android:textColor="@color/black"
+                android:textSize="34sp"
+                android:textStyle="bold" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/weatherString"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:paddingLeft="@dimen/dp20"
+                android:paddingTop="@dimen/dp5"
+                android:paddingRight="@dimen/dp20"
+                android:paddingBottom="@dimen/dp20"
+                android:textAllCaps="false"
+                android:textColor="@color/black"
+                android:textSize="14sp"
+                android:textStyle="bold" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/date"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:gravity="center_vertical"
+                android:paddingLeft="@dimen/dp20"
+                android:paddingTop="@dimen/dp5"
+                android:paddingRight="@dimen/dp20"
+                android:paddingBottom="@dimen/dp20"
+                android:textAllCaps="false"
+                android:textColor="@color/black"
+                android:textSize="14sp"
+                android:textStyle="bold" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/maxTempTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:gravity="center_vertical"
+                android:padding="@dimen/dp20"
+                android:text="@string/maximum_temp"
+                android:textAllCaps="false"
+                android:textColor="@color/less_darker"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/maxTempValue"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:gravity="center_vertical"
+                android:padding="@dimen/dp20"
+                android:text=""
+                android:textAllCaps="false"
+                android:textColor="@color/black"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/minTempTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:gravity="center_vertical"
+                android:padding="@dimen/dp20"
+                android:text="@string/minimum_temp"
+                android:textAllCaps="false"
+                android:textColor="@color/less_darker"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/minTempValue"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:gravity="center_vertical"
+                android:padding="@dimen/dp20"
+                android:textAllCaps="false"
+                android:textColor="@color/black"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/windSpeedTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:gravity="center_vertical"
+                android:padding="@dimen/dp20"
+                android:text="@string/wind_speed"
+                android:textAllCaps="false"
+                android:textColor="@color/less_darker"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/windSpeedValue"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:gravity="center_vertical"
+                android:padding="@dimen/dp20"
+                android:textAllCaps="false"
+                android:textColor="@color/black"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/windDegreeTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:gravity="center_vertical"
+                android:padding="@dimen/dp20"
+                android:text="@string/wind_degree"
+                android:textAllCaps="false"
+                android:textColor="@color/less_darker"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/windDegreeValue"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:gravity="center_vertical"
+                android:padding="@dimen/dp20"
+                android:textAllCaps="false"
+                android:textColor="@color/black"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/humidityTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:gravity="center_vertical"
+                android:padding="@dimen/dp20"
+                android:text="@string/humidity"
+                android:textAllCaps="false"
+                android:textColor="@color/less_darker"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/humidityValue"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:gravity="center_vertical"
+                android:padding="@dimen/dp20"
+                android:textAllCaps="false"
+                android:textColor="@color/black"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/pressureTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:gravity="center_vertical"
+                android:padding="@dimen/dp20"
+                android:text="@string/pressure"
+                android:textAllCaps="false"
+                android:textColor="@color/less_darker"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/pressureValue"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:gravity="center_vertical"
+                android:padding="@dimen/dp20"
+                android:textAllCaps="false"
+                android:textColor="@color/black"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+
+        </GridLayout>
+
+    </androidx.core.widget.NestedScrollView>
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

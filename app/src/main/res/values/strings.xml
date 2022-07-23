@@ -4,7 +4,16 @@
     <string name="home_activity_subtitle">Select a city to view weather details</string>
     <string name="title_activity_weather_details">Weather</string>
 
-    <string name="error_desc">Failed to fetch cities. Possibly because you are offline
+    <string name="error_desc_cities">Failed to fetch cities. <!--Possibly because you are offline
         or may be there is an alien attack and the govt is not telling you and the internet is down.
-        You may never know.</string>
+        You may never know.--></string>
+
+    <string name="error_desc_detailed_weather">Failed to fetch weather details.</string>
+    <string name="minimum_temp">Minimum Temp</string>
+    <string name="maximum_temp">Maximum Temp</string>
+    <string name="wind_speed">Wind Speed</string>
+    <string name="wind_degree">Wind Direction</string>
+    <string name="humidity">Humidity</string>
+    <string name="pressure">pressure</string>
+
 </resources>

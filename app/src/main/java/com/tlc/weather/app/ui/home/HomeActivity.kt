@@ -31,6 +31,7 @@ class HomeActivity : BaseActivity() {
 
         binding = ActivityHomeBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
         val toolbar = findViewById<Toolbar>(R.id.toolbar)
         toolbar.title = getString(R.string.home_activity_title)
         toolbar.subtitle = getString(R.string.home_activity_subtitle)
@@ -63,7 +64,7 @@ class HomeActivity : BaseActivity() {
         //show error in the UI here
         if (isError) {
             val parentLayout = findViewById<View>(android.R.id.content)
-            Snackbar.make(parentLayout, getString(R.string.error_desc), Snackbar.LENGTH_LONG)
+            Snackbar.make(parentLayout, getString(R.string.error_desc_cities), Snackbar.LENGTH_LONG)
                 .also {
                     it.setTextMaxLines(4)
                 }.show()

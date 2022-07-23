@@ -12,7 +12,7 @@ interface WeatherApi {
     @GET("weather/list")
     fun getCities(): Call<CitiesResponse>
 
-    @GET("weather/{id}")
-    fun getDetailedWeather(@Path("cityId") cityId: Long): Call<City>
+    @GET("weather/{cityId}")
+    fun getDetailedWeather(@Path("cityId") cityId: Long): Call<DetailedWeather>
 
 }

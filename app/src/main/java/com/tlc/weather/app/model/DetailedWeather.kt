@@ -9,6 +9,6 @@ data class DetailedWeather(
     @SerializedName(value = "wind") val windData: WindData,
     @SerializedName(value = "rain") val rainData: RainData,
     @SerializedName(value = "clouds") val cloudData: CloudData,
-    @SerializedName(value = "weather") val weatherData: List<WeatherData>,
+    @SerializedName(value = "weather") val weatherData: List<WeatherData>?,
     @SerializedName(value = "sys") val sysData: SysData
 )

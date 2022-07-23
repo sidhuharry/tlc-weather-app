@@ -1,6 +1,8 @@
 package com.tlc.weather.app.network.service
 
+import android.graphics.Bitmap
 import com.tlc.weather.app.model.*
+import com.tlc.weather.app.network.api.OpenWeatherApi
 import com.tlc.weather.app.network.api.WeatherApi
 import com.tlc.weather.app.network.util.NetworkUtils
 import kotlinx.coroutines.Dispatchers
@@ -11,7 +13,8 @@ import kotlinx.coroutines.withContext
 
 class WeatherApiService(
     private val weatherApi: WeatherApi,
-    private val networkUtils: NetworkUtils
+    private val networkUtils: NetworkUtils,
+    private val openWeatherApi: OpenWeatherApi
 ) : IWeatherApiService {
 
     override fun getCities(): Flow<NetworkResponse> {
@@ -26,16 +29,24 @@ class WeatherApiService(
 
     override fun getDetailedWeather(cityId: Long): Flow<NetworkResponse> {
         return flow {
-            withContext(Dispatchers.IO) {
 
-                val result = kotlin.runCatching {
-                    weatherApi.getDetailedWeather(cityId).execute()
-                }
-                val networkResponse = networkUtils.parseResponse(result)
-                emit(networkResponse)
-
+            val result = kotlin.runCatching {
+                weatherApi.getDetailedWeather(cityId).execute()
             }
-        }
+            val networkResponse = networkUtils.parseResponse(result)
+            emit(networkResponse)
+
+        }.flowOn(Dispatchers.IO)
+    }
+
+    override fun getIcon(iconId: String): Flow<NetworkResponse> {
+        return flow {
+            val result = kotlin.runCatching {
+                openWeatherApi.getIcon(iconId).execute()
+            }
+            val networkResponse = networkUtils.parseResponse(result)
+            emit(networkResponse)
+        }.flowOn(Dispatchers.IO)
     }
 
     companion object {

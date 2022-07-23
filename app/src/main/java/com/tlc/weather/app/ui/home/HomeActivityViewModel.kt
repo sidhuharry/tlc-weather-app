@@ -1,5 +1,6 @@
 package com.tlc.weather.app.ui.home
 
+import android.graphics.Bitmap
 import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
