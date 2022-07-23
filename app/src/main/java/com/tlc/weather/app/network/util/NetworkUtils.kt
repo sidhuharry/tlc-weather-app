@@ -21,7 +21,7 @@ class NetworkUtils {
                 }
             }
         } else {
-            Log.e(Companion.TAG, "Unable to fetch cities from server.", result.exceptionOrNull())
+            Log.e(TAG, "Unable to fetch cities from server.", result.exceptionOrNull())
         }
         return networkResp
     }

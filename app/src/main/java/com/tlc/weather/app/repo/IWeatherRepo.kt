@@ -8,8 +8,8 @@ import kotlinx.coroutines.flow.Flow
 
 interface IWeatherRepo {
 
-    fun getCities(): Flow<NetworkResponse>
+    suspend fun getCities(): Flow<NetworkResponse>
 
-    fun getDetailedWeather(cityId: Long): Flow<NetworkResponse>
+    suspend fun getDetailedWeather(cityId: Long): Flow<NetworkResponse>
 
 }

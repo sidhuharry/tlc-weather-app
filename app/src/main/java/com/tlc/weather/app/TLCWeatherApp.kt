@@ -19,7 +19,7 @@ class TLCWeatherApp : Application() {
         startKoin {
             androidLogger(Level.DEBUG)
             androidContext(this@TLCWeatherApp)
-            modules(listOf(networkModule, appModule, repoModule))
+            modules(networkModule, repoModule, appModule)
         }
     }
 

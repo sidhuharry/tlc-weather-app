@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    app:cardUseCompatPadding="true"
+    android:outlineAmbientShadowColor="@color/black"
+    android:layout_height="wrap_content"
+    tools:targetApi="p">
+
+    <LinearLayout
+        android:id="@+id/cityListItem"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:paddingLeft="@dimen/dp5"
+        android:paddingTop="@dimen/dp10"
+        android:paddingRight="@dimen/dp5"
+        android:paddingBottom="@dimen/dp20">
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/cityName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:drawableLeft="@drawable/ic_city"
+            android:drawablePadding="@dimen/dp5"
+            android:gravity="center_vertical"
+            android:layout_gravity="center_vertical"
+            android:paddingLeft="@dimen/dp30"
+            android:paddingTop="@dimen/dp20"
+            android:paddingRight="@dimen/dp30"
+            android:paddingBottom="0dp"
+            android:text="Melbourne"
+            android:textAllCaps="false"
+            android:textColor="@color/black"
+            android:textSize="26sp"
+            android:textStyle="bold" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/cityCoordinates"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:drawableLeft="@drawable/ic_location_sign"
+            android:drawablePadding="@dimen/dp5"
+            android:gravity="center_vertical"
+            android:paddingLeft="@dimen/dp65"
+            android:text="0.3343, 5.945"
+            android:textSize="12sp"
+            android:textStyle="bold" />
+
+
+    </LinearLayout>
+</com.google.android.material.card.MaterialCardView>
