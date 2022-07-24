@@ -1,19 +1,13 @@
 package com.tlc.weather.app.ui.home
 
-import android.graphics.Bitmap
-import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.tlc.weather.app.model.CitiesResponse
-import com.tlc.weather.app.model.City
 import com.tlc.weather.app.model.NetworkResponse
-import com.tlc.weather.app.repo.IWeatherRepo
 import com.tlc.weather.app.repo.WeatherRepo
-import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.catch
-import kotlinx.coroutines.flow.flowOn
 import kotlinx.coroutines.launch
 
 class HomeActivityViewModel(private val weatherRepo: WeatherRepo) : ViewModel() {
@@ -37,11 +31,11 @@ class HomeActivityViewModel(private val weatherRepo: WeatherRepo) : ViewModel() 
 
 
     fun loadCities() {
-        _isError.value = false
-        _isLoading.value = true
         viewModelScope.launch {
+            _isError.postValue(false)
+            _isLoading.postValue(true)
+
             weatherRepo.getCities().catch { exception ->
-                Log.e(TAG, "Get cities failed", exception)
                 _isError.postValue(true)
                 _isLoading.postValue(false)
             }.collect { networkResp ->

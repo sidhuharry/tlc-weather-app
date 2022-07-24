@@ -85,13 +85,13 @@ class WeatherDetailsActivity : BaseActivity() {
     }
 
     private fun updateUi(detailedWeather: DetailedWeather) {
-        binding.temp.text = "${detailedWeather.mainData.temp} ℉"
-        binding.humidityValue.text = "${detailedWeather.mainData.humidity} g/kg"
-        binding.maxTempValue.text = "${detailedWeather.mainData.tempMax} ℉"
-        binding.minTempValue.text = "${detailedWeather.mainData.tempMin} ℉"
-        binding.pressureValue.text = "${detailedWeather.mainData.pressure}"
-        binding.windDegreeValue.text = "${detailedWeather.windData.deg}°"
-        binding.windSpeedValue.text = "${detailedWeather.windData.speed} km/h"
+        binding.temp.text = "${detailedWeather.mainData?.temp} ℉"
+        binding.humidityValue.text = "${detailedWeather.mainData?.humidity} g/kg"
+        binding.maxTempValue.text = "${detailedWeather.mainData?.tempMax} ℉"
+        binding.minTempValue.text = "${detailedWeather.mainData?.tempMin} ℉"
+        binding.pressureValue.text = "${detailedWeather.mainData?.pressure}"
+        binding.windDegreeValue.text = "${detailedWeather.windData?.deg}°"
+        binding.windSpeedValue.text = "${detailedWeather.windData?.speed} km/h"
 
         binding.weatherString.text = detailedWeather?.weatherData?.get(0)?.main
 

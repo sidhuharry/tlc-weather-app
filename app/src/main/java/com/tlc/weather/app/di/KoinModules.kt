@@ -1,17 +1,14 @@
 package com.tlc.weather.app.di
 
-import com.tlc.weather.app.model.DetailedWeather
 import com.tlc.weather.app.network.api.OpenWeatherApi
 import com.tlc.weather.app.network.api.WeatherApi
 import com.tlc.weather.app.network.service.WeatherApiService
 import com.tlc.weather.app.network.util.NetworkUtils
-import com.tlc.weather.app.repo.IWeatherRepo
 import com.tlc.weather.app.repo.WeatherRepo
 import com.tlc.weather.app.ui.details.WeatherDetailsViewModel
 import com.tlc.weather.app.ui.home.HomeActivityViewModel
 import okhttp3.OkHttpClient
 import org.koin.androidx.viewmodel.dsl.viewModel
-import org.koin.dsl.bind
 import org.koin.dsl.module
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
